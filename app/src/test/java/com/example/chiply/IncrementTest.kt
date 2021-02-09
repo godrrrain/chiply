@@ -23,4 +23,9 @@ class IncrementTest {
     fun multiplicationTest() {
         assertEquals(4, 2 * 2)
     }
+
+    @Test
+    fun subtractionTest() {
+        assertEquals(4, 5 - 1)
+    }
 }
