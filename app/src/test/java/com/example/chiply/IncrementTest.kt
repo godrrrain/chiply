@@ -12,4 +12,9 @@ class IncrementTest {
         i += 1
         assertEquals(2, i)
     }
+
+    @Test
+    fun multiplicationTest() {
+        assertEquals(4, 2 * 2)
+    }
 }
