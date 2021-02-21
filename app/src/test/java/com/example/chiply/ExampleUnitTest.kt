@@ -9,25 +9,45 @@ import org.junit.Test
  */
 class ExampleUnitTest {
 
+    private val presenter = Presenter()
     @Test
     fun printDiscount() {
+        presenter.pricePrint()
+        presenter.productsNamePrint()
+        presenter.cartPrint()
+    }
+}
 
-        val laysChips = Product("Лейс",80.0, 20)
-        val pringlsChips = Product("Принглз",180.0, 10)
+class Presenter {
+    private val laysChips = Product("Лейс",80.0, 20)
+    private val pringlsChips = Product("Принглз",180.0, 10)
 
-        val pricePrinter: PricePrinter = CleanKotlinPricePrinter()
+    private val pricePrinter: PricePrinter = ConsolePricePrinter()
 
-        val products = listOf(laysChips, pringlsChips)
+    private val products = listOf(laysChips, pringlsChips)
+
+    private val mainCart = Cart(products)
+
+    fun pricePrint() {
         val discountPrices = products.map { it.calcDiscountPrice() }
 
         discountPrices.forEach { discountPrice ->
             pricePrinter.printProduct(discountPrice)
         }
-
-        val mainCart = Cart(products)
-        pricePrinter.printCart(mainCart)
-
     }
+
+    fun productsNamePrint() {
+        products.forEach {
+            pricePrinter.printProductName(it.getName())
+        }
+    }
+
+    fun cartPrint() {
+        pricePrinter.printCart(mainCart)
+    }
+
+
+
 }
 
 class Cart (
@@ -56,12 +76,18 @@ class Product (
 }
 
 interface PricePrinter {
+    fun printProductName(name: String)
+
     fun printProduct(price: Double)
 
     fun printCart(cart: Cart)
 }
 
-class CleanKotlinPricePrinter : PricePrinter {
+class ConsolePricePrinter : PricePrinter {
+    override fun printProductName(name: String) {
+        println(name)
+    }
+
     override fun printProduct(price: Double) {
         if (price > 100) {
             println("Цена - $price руб. Дороговато чет")
