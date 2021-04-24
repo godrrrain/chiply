@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">chiply</string>
+    <string name="checkout_header">Оформление заказа</string>
+    <string name="personal_data">Личные данные</string>
+    <string name="second_name">Фамилия</string>
+    <string name="first_name">Имя</string>
+    <string name="third_name">Отчество</string>
+    <string name="phone">Телефон</string>
+    <string name="checkout_header_payment">Выбери способ оплаты</string>
+    <string name="payment_cash">Наличные</string>
+    <string name="payment_online">Онлайн-оплата</string>
+    <string name="checkout_header_order">Состав заказа</string>
+    <string name="overall_price">Общая сумма</string>
+    <string name="sale">Скидка</string>
+    <string name="sum">Итого</string>
+    <string name="pay">Оплатить</string>
+    <string name="checkout_hint_for_phone">Пример, +79999999999 или 89999999999</string>
 </resources>

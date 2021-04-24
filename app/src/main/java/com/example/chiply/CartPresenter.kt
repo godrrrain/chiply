@@ -11,6 +11,8 @@ class CartPresenter(
     private val mainCart = Cart(products)
 
     fun cartPrint() {
-        view.printCart(mainCart)
+        mainCart.getProductList().forEach {
+            view.print(it.calcDiscountPrice())
+        }
     }
 }
