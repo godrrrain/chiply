@@ -1,11 +1,11 @@
-package com.example.chiply
+package com.example.chiply.presenter
 
 import moxy.MvpView
 import moxy.viewstate.strategy.AddToEndSingleStrategy
 import moxy.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(AddToEndSingleStrategy::class)
-interface ProductsView : MvpView {
+interface CheckoutView : MvpView {
 
     @StateStrategyType(AddToEndSingleStrategy::class)
     fun print(name: String)

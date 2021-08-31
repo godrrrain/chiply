@@ -6,16 +6,15 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.Toast
-import com.example.chiply.CartPresenter
-import com.example.chiply.ProductsPresenter
-import com.example.chiply.ProductsView
+import com.example.chiply.presenter.CheckoutPresenter
 import com.example.chiply.R
+import com.example.chiply.presenter.CheckoutView
+import com.example.chiply.ui.CatalogActivity.Companion.PRODUCT_ID
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), ProductsView {
+class CheckoutActivity : AppCompatActivity(), CheckoutView {
 
-    private val productPresenter = ProductsPresenter()
-    private val cartPresenter = CartPresenter(this)
+    private val productPresenter = CheckoutPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,16 +22,20 @@ class MainActivity : AppCompatActivity(), ProductsView {
 
         productPresenter.attachView(this)
 
+        val productId = intent.extras?.getInt(PRODUCT_ID, -1)
+
         checkoutSumValue.text = "10000 Р"
         checkoutPay.setOnClickListener {
             Toast.makeText(this, "Переход на страницу оплаты", Toast.LENGTH_SHORT).show()
         }
 
+        checkoutBack.setOnClickListener {
+            finish()
+        }
+
         setListeners()
 
         productPresenter.pricePrint()
-        cartPresenter.cartPrint()
-
     }
 
     private fun setListeners() {

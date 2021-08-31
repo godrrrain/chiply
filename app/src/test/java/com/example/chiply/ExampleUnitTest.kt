@@ -1,5 +1,7 @@
 package com.example.chiply
 
+import com.example.chiply.domain.model.Cart
+import com.example.chiply.domain.model.Product
 import org.junit.Test
 
 /**

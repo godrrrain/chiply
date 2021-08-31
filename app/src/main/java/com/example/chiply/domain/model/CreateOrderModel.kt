@@ -1,4 +1,4 @@
-package com.example.chiply
+package com.example.chiply.domain.model
 
 /*
 Модель для создания заказов

@@ -1,8 +1,10 @@
-package com.example.chiply
+package com.example.chiply.presenter
 
+import com.example.chiply.domain.model.Product
+import com.example.chiply.domain.model.CreateOrderModel
 import moxy.MvpPresenter
 
-class ProductsPresenter : MvpPresenter<ProductsView>() {
+class CheckoutPresenter : MvpPresenter<CheckoutView>() {
 
     private val laysChips = Product("Лейс",80.0, 20)
     private val pringlsChips = Product("Принглз",180.0, 10)
@@ -51,5 +53,6 @@ class ProductsPresenter : MvpPresenter<ProductsView>() {
         products.forEach {
             viewState.print(it.getName())
         }
+
     }
 }

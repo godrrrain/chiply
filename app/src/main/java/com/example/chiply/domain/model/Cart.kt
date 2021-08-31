@@ -1,4 +1,4 @@
-package com.example.chiply
+package com.example.chiply.domain.model
 
 class Cart (
         private val products: List<Product>

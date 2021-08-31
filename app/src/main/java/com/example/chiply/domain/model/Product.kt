@@ -1,4 +1,4 @@
-package com.example.chiply
+package com.example.chiply.domain.model
 
 class Product (
         private val name: String,
@@ -8,4 +8,6 @@ class Product (
     fun calcDiscountPrice(): Double = price - (price * discountPercent / 100)
 
     fun getName(): String = name
+
+    fun getDiscount(): Int = discountPercent
 }
